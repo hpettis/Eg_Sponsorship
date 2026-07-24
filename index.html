@@ -17,8 +17,9 @@
   section.block { margin-bottom: 56px; }
 
   /* hero grid */
-.hero-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 18px; }
-.hero-card { flex: 0 1 calc(25% - 12px); min-width: 210px; text-align: left; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 12px; padding: 14px 15px; cursor: pointer; font-family: inherit; transition: transform 0.08s ease, box-shadow 0.08s ease; }  .hero-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.08); transform: translateY(-1px); }
+  .hero-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 18px; }
+  .hero-card { flex: 0 1 calc(25% - 12px); min-width: 210px; text-align: left; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 12px; padding: 14px 15px; cursor: pointer; font-family: inherit; transition: transform 0.08s ease, box-shadow 0.08s ease; }
+  .hero-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.08); transform: translateY(-1px); }
   .hero-card.active { background: #fbfaf6; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
   .hero-thumb { width: 100%; aspect-ratio: 4 / 3; border-radius: 8px; margin-bottom: 12px; background: repeating-linear-gradient(45deg, #f0efe9, #f0efe9 8px, #e7e5db 8px, #e7e5db 16px); border: 1px dashed #c9c7bc; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
   .hero-thumb svg { opacity: 0.55; }
@@ -28,8 +29,15 @@
   .hero-eg { font-size: 10.5px; color: #918f86; letter-spacing: 0.03em; font-variant-numeric: tabular-nums; }
   .hero-name { font-size: 15.5px; font-weight: 700; margin-bottom: 4px; }
   .hero-summary { font-size: 12.5px; color: #6b6a64; line-height: 1.45; }
+  .hero-cta { display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: #12312b; margin-top: 10px; opacity: 0.7; }
+  .hero-cta svg { width: 11px; height: 11px; transition: transform 0.12s ease; }
+  .hero-card:hover .hero-cta { opacity: 1; }
+  .hero-card:hover .hero-cta svg { transform: translateX(3px); }
 
-  .hero-detail { margin-top: 18px; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 12px; padding: 20px 22px 22px; }
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(18, 17, 14, 0.5); display: flex; align-items: center; justify-content: center; padding: 24px; z-index: 50; opacity: 0; pointer-events: none; transition: opacity 0.15s ease; }
+  .modal-backdrop.open { opacity: 1; pointer-events: auto; }
+  .hero-detail { width: 100%; max-width: 480px; max-height: 86vh; overflow-y: auto; background: #ffffff; border-radius: 14px; padding: 22px 24px 26px; box-shadow: 0 24px 64px rgba(0,0,0,0.32); transform: translateY(10px) scale(0.98); transition: transform 0.15s ease; }
+  .modal-backdrop.open .hero-detail { transform: translateY(0) scale(1); }
   .hero-detail-head { display: flex; align-items: flex-start; justify-content: space-between; }
   .hero-detail-id { display: flex; align-items: center; gap: 10px; }
   .hero-detail-id .hero-swatch { width: 22px; height: 22px; }
@@ -110,7 +118,9 @@
   <section class="block">
     <h2 class="section-title">The Whales</h2>
     <div class="hero-grid" id="heroGrid"></div>
-    <div class="hero-detail" id="heroDetail" hidden></div>
+    <div class="modal-backdrop" id="heroModal">
+      <div class="hero-detail" id="heroDetail"></div>
+    </div>
   </section>
 
   <section class="block">
@@ -144,7 +154,7 @@ const clusters = [
   { code: "MIDA", label: "Mid-Atlantic Bight", centroid: [-73.7225, 38.5646], bbox: [-75.3584, 36.8406, -70.6423, 40.551], count: 8, whales: { Resolution: 4, Shackelton: 3, Aphrodite: 1 } }
 ];
 
-const symbolSize = 150;
+const symbolSize = 64;
 function symbolPath(shape, size) {
   const s = d3.symbol().size(size || symbolSize);
   switch (shape) {
@@ -399,12 +409,13 @@ function mountMap(parent, opts) {
 
 // ---------- The Whales hero section ----------
 const heroGrid = document.getElementById("heroGrid");
+const heroModal = document.getElementById("heroModal");
 const heroDetail = document.getElementById("heroDetail");
 let activeHero = null;
 
 function closeHeroDetail() {
   activeHero = null;
-  heroDetail.hidden = true;
+  heroModal.classList.remove("open");
   heroGrid.querySelectorAll(".hero-card").forEach(el => { el.classList.remove("active"); el.style.borderColor = ""; });
 }
 
@@ -431,9 +442,16 @@ function openHeroDetail(name) {
     <div class="update-label">Update</div>
     <div class="update-box">${m.update}</div>
   `;
-  heroDetail.hidden = false;
+  heroModal.classList.add("open");
   heroDetail.querySelector(".hero-detail-close").addEventListener("click", closeHeroDetail);
 }
+
+heroModal.addEventListener("click", (event) => {
+  if (event.target === heroModal) closeHeroDetail();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && activeHero) closeHeroDetail();
+});
 
 whaleOrder.forEach(name => {
   const m = whaleMeta[name];
@@ -456,11 +474,14 @@ whaleOrder.forEach(name => {
     </div>
     <div class="hero-name">${name}</div>
     <div class="hero-summary">${m.count} sightings, mostly in ${m.topRegion}</div>
+    <div class="hero-cta">
+      <span>Click for more information</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+    </div>
   `;
   card.addEventListener("click", () => {
     if (activeHero === name) { closeHeroDetail(); return; }
     openHeroDetail(name);
-    heroDetail.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
   heroGrid.appendChild(card);
 });
