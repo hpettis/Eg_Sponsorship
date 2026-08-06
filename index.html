@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Right Whale Sponsorship Updates</title>
 <style>
   html, body { margin: 0; padding: 0; background: #f7f6f2; font-family: -apple-system, "Segoe UI", Arial, sans-serif; color: #1c1c1a; }
@@ -15,8 +16,9 @@
   .section-title { font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 700; color: #12312b; margin: 0 0 4px; }
   .section-sub { font-size: 13.5px; color: #6b6a64; margin: 0 0 18px; }
   section.block { margin-bottom: 56px; }
-  .map-breakout { width: 100vw; position: relative; left: 50%; transform: translateX(-50%); }
-  .map-breakout-inner { max-width: 1600px; margin: 0 auto; padding: 0 24px; }
+  .map-section-wide { width: 100%; box-sizing: border-box; padding: 0 24px 56px; display: flex; justify-content: center; }
+  .map-section-wide-inner { width: 100%; max-width: 1600px; }
+  #primaryMap, #profileMapMount { width: 100%; }
 
   /* whale switcher */
   .whale-switcher { display: flex; gap: 10px; overflow-x: auto; padding: 2px 2px 10px; margin-bottom: 22px; scrollbar-width: thin; }
@@ -62,7 +64,7 @@
 
   /* maps (shared by profile mini-map and the full "all whales" map) */
   .map-sub { font-size: 13px; color: #6b6a64; margin: 0 0 16px; }
-  .stage { position: relative; background: #eaf3fb; border: 0.5px solid #d8d6cc; border-radius: 10px; overflow: hidden; max-height: 82vh; }
+  .stage { position: relative; width: 100%; background: #eaf3fb; border: 0.5px solid #d8d6cc; border-radius: 10px; overflow: hidden; max-height: 82vh; }
   svg.map-svg { display: block; width: 100%; height: 100%; cursor: grab; }
   svg.map-svg:active { cursor: grabbing; }
   .land { fill: #ece8dd; stroke: #c9c4b4; stroke-width: 0.6; }
@@ -130,15 +132,15 @@
     <div class="profile" id="whaleProfile"></div>
   </section>
 
-  <section class="block map-breakout" id="allMapSection">
-    <div class="map-breakout-inner">
-      <h2 class="section-title">All Whales Map</h2>
-      <p class="map-sub">113 sightings across all seven whales, Miami to the Gulf of St. Lawrence.</p>
-      <div id="primaryMap"></div>
-    </div>
-  </section>
-
 </div>
+
+<section class="map-section-wide" id="allMapSection">
+  <div class="map-section-wide-inner">
+    <h2 class="section-title">All Whales Map</h2>
+    <p class="map-sub">113 sightings across all seven whales, Miami to the Gulf of St. Lawrence.</p>
+    <div id="primaryMap"></div>
+  </div>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
