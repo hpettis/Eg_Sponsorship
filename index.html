@@ -15,44 +15,55 @@
   .section-title { font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 700; color: #12312b; margin: 0 0 4px; }
   .section-sub { font-size: 13.5px; color: #6b6a64; margin: 0 0 18px; }
   section.block { margin-bottom: 56px; }
+  .map-breakout { width: 100vw; position: relative; left: 50%; transform: translateX(-50%); }
+  .map-breakout-inner { max-width: 1600px; margin: 0 auto; padding: 0 24px; }
 
-  /* hero grid */
-  .hero-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 18px; }
-  .hero-card { flex: 0 1 calc(25% - 12px); min-width: 210px; text-align: left; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 12px; padding: 14px 15px; cursor: pointer; font-family: inherit; transition: transform 0.08s ease, box-shadow 0.08s ease; }
-  .hero-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.08); transform: translateY(-1px); }
-  .hero-card.active { background: #fbfaf6; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
-  .hero-thumb { width: 100%; aspect-ratio: 4 / 3; border-radius: 8px; margin-bottom: 12px; background: repeating-linear-gradient(45deg, #f0efe9, #f0efe9 8px, #e7e5db 8px, #e7e5db 16px); border: 1px dashed #c9c7bc; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
-  .hero-thumb svg { opacity: 0.55; }
-  .hero-thumb span { font-size: 10px; color: #918f86; letter-spacing: 0.02em; }
-  .hero-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-  .hero-swatch { width: 18px; height: 18px; flex: none; }
-  .hero-eg { font-size: 10.5px; color: #918f86; letter-spacing: 0.03em; font-variant-numeric: tabular-nums; }
-  .hero-name { font-size: 15.5px; font-weight: 700; margin-bottom: 4px; }
-  .hero-summary { font-size: 12.5px; color: #6b6a64; line-height: 1.45; }
-  .hero-cta { display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; color: #12312b; margin-top: 10px; opacity: 0.7; }
-  .hero-cta svg { width: 11px; height: 11px; transition: transform 0.12s ease; }
-  .hero-card:hover .hero-cta { opacity: 1; }
-  .hero-card:hover .hero-cta svg { transform: translateX(3px); }
+  /* whale switcher */
+  .whale-switcher { display: flex; gap: 10px; overflow-x: auto; padding: 2px 2px 10px; margin-bottom: 22px; scrollbar-width: thin; }
+  .switcher-chip { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1.5px solid #d8d6cc; background: #ffffff; cursor: pointer; font-size: 13px; font-weight: 600; color: #33322e; white-space: nowrap; font-family: inherit; transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease; }
+  .switcher-chip:hover { border-color: #12312b; }
+  .switcher-chip:focus-visible { outline: 2px solid #12312b; outline-offset: 2px; }
+  .switcher-chip.active { background: #12312b; border-color: #12312b; color: #ffffff; }
+  .switcher-swatch { width: 13px; height: 13px; flex: none; }
+  .switcher-star { color: #d9ecc4; font-size: 12px; line-height: 1; }
+  .switcher-chip.active .switcher-star { color: #d9ecc4; }
 
-  .modal-backdrop { position: fixed; inset: 0; background: rgba(18, 17, 14, 0.5); display: flex; align-items: center; justify-content: center; padding: 24px; z-index: 50; opacity: 0; pointer-events: none; transition: opacity 0.15s ease; }
-  .modal-backdrop.open { opacity: 1; pointer-events: auto; }
-  .hero-detail { width: 100%; max-width: 480px; max-height: 86vh; overflow-y: auto; background: #ffffff; border-radius: 14px; padding: 22px 24px 26px; box-shadow: 0 24px 64px rgba(0,0,0,0.32); transform: translateY(10px) scale(0.98); transition: transform 0.15s ease; }
-  .modal-backdrop.open .hero-detail { transform: translateY(0) scale(1); }
-  .hero-detail-head { display: flex; align-items: flex-start; justify-content: space-between; }
-  .hero-detail-id { display: flex; align-items: center; gap: 10px; }
-  .hero-detail-id .hero-swatch { width: 22px; height: 22px; }
-  .hero-detail-name { font-size: 18px; font-weight: 700; }
-  .hero-detail-eg { font-size: 11.5px; color: #918f86; margin-top: 1px; }
-  .hero-detail-close { background: none; border: none; cursor: pointer; color: #918f86; font-size: 20px; line-height: 1; padding: 0; }
-  .hero-detail-close:hover { color: #1c1c1a; }
-  .hero-detail-meta { font-size: 13px; color: #6b6a64; margin: 10px 0 16px; }
+  /* profile */
+  .profile { display: flex; flex-direction: column; gap: 24px; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 14px; padding: 26px 28px; }
+  .profile-header { display: flex; gap: 18px; }
+  .profile-photo { flex: 0 0 41%; aspect-ratio: 1 / 1; border-radius: 10px; background: repeating-linear-gradient(45deg, #f0efe9, #f0efe9 8px, #e7e5db 8px, #e7e5db 16px); border: 1px dashed #c9c7bc; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+  .profile-photo svg { opacity: 0.5; width: 40px; height: 40px; }
+  .profile-photo span { font-size: 11.5px; color: #918f86; letter-spacing: 0.02em; text-align: center; padding: 0 6px; }
+  .profile-details { flex: 1 1 auto; min-width: 0; }
+  .profile-top { display: flex; align-items: center; gap: 9px; margin-bottom: 4px; flex-wrap: wrap; }
+  .profile-name { font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 700; color: #12312b; }
+  .profile-eg { font-size: 12px; color: #918f86; font-variant-numeric: tabular-nums; }
+  .profile-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: #12312b; background: #d9ecc4; padding: 2px 8px; border-radius: 999px; }
+  .profile-summary { font-size: 13.5px; color: #6b6a64; margin: 6px 0 14px; }
+  .profile-fields { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; }
+  .profile-field { display: flex; align-items: baseline; gap: 6px; }
+  .profile-field-label { flex: 0 0 78px; font-size: 12.5px; color: #6b6a64; font-weight: 600; }
+  .profile-field-value { font-size: 13.5px; color: #1c1c1a; }
   .update-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #918f86; margin-bottom: 6px; }
-  .update-box { border: 1.5px dashed #d8d6cc; border-radius: 10px; padding: 14px 16px; font-size: 13.5px; line-height: 1.65; color: #33322e; background: #fbfaf6; }
+  .update-box { border: 1.5px dashed #d8d6cc; border-radius: 10px; padding: 13px 15px; font-size: 13.5px; line-height: 1.65; color: #33322e; background: #fbfaf6; }
 
-  /* maps */
+  .profile-map-col { width: 100%; padding-top: 22px; border-top: 1px solid #ece9df; }
+  .profile-map-caption { font-size: 12.5px; font-weight: 600; color: #12312b; margin-bottom: 8px; }
+
+  .all-map-link-row { margin: -8px 0 22px; }
+  .all-map-link { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: #12312b; text-decoration: none; background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
+  .all-map-link svg { width: 13px; height: 13px; transition: transform 0.12s ease; }
+  .all-map-link:hover svg { transform: translateX(3px); }
+
+  @media (max-width: 420px) {
+    .profile-header { flex-direction: column; }
+    .profile-photo { flex: 0 0 auto; width: 100%; aspect-ratio: 16 / 9; }
+  }
+
+  /* maps (shared by profile mini-map and the full "all whales" map) */
   .map-sub { font-size: 13px; color: #6b6a64; margin: 0 0 16px; }
-  .stage { position: relative; background: #eaf3fb; border: 0.5px solid #d8d6cc; border-radius: 10px; overflow: hidden; }
-  svg.map-svg { display: block; width: 100%; height: auto; max-height: 82vh; cursor: grab; }
+  .stage { position: relative; background: #eaf3fb; border: 0.5px solid #d8d6cc; border-radius: 10px; overflow: hidden; max-height: 82vh; }
+  svg.map-svg { display: block; width: 100%; height: 100%; cursor: grab; }
   svg.map-svg:active { cursor: grabbing; }
   .land { fill: #ece8dd; stroke: #c9c4b4; stroke-width: 0.6; }
   .grat { fill: none; stroke: #c7ddef; stroke-width: 0.5; }
@@ -96,15 +107,6 @@
   .popout-wcount { margin-left: auto; color: #918f86; font-size: 11.5px; }
   .popout-btn { margin-top: 10px; width: 100%; padding: 7px; border-radius: 6px; border: 0.5px solid #d8d6cc; background: #f7f6f2; font-size: 12px; color: #33322e; cursor: pointer; }
   .popout-btn:hover { background: #eeece3; }
-
-  /* individual maps */
-  .mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 28px; margin-top: 18px; }
-  .mini-map-block { background: #ffffff; border: 0.5px solid #d8d6cc; border-radius: 12px; padding: 14px; }
-  .mini-map-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-  .mini-map-head .hero-swatch { width: 16px; height: 16px; }
-  .mini-map-name { font-size: 14px; font-weight: 700; }
-  .mini-map-eg { font-size: 11px; color: #918f86; }
-  .mini-map-count { font-size: 11.5px; color: #6b6a64; margin-left: auto; }
 </style>
 </head>
 <body>
@@ -117,22 +119,23 @@
 
   <section class="block">
     <h2 class="section-title">The Whales</h2>
-    <div class="hero-grid" id="heroGrid"></div>
-    <div class="modal-backdrop" id="heroModal">
-      <div class="hero-detail" id="heroDetail"></div>
+    <p class="section-sub">Select a whale to see their profile and where they've been sighted.</p>
+    <div class="whale-switcher" id="whaleSwitcher"></div>
+    <div class="all-map-link-row">
+      <button class="all-map-link" type="button" id="allMapLink">
+        <span>See all sponsored whales on one map</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+      </button>
     </div>
+    <div class="profile" id="whaleProfile"></div>
   </section>
 
-  <section class="block">
-    <h2 class="section-title">All sightings</h2>
-    <p class="map-sub">113 sightings across all seven whales, Miami to the Gulf of St. Lawrence.</p>
-    <div id="primaryMap"></div>
-  </section>
-
-  <section class="block">
-    <h2 class="section-title">Individual whale maps</h2>
-    <p class="map-sub">Each whale plotted separately, with the same zoom, pan, and hover detail as the map above.</p>
-    <div class="mini-grid" id="miniGrid"></div>
+  <section class="block map-breakout" id="allMapSection">
+    <div class="map-breakout-inner">
+      <h2 class="section-title">All Whales Map</h2>
+      <p class="map-sub">113 sightings across all seven whales, Miami to the Gulf of St. Lawrence.</p>
+      <div id="primaryMap"></div>
+    </div>
   </section>
 
 </div>
@@ -141,7 +144,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
 const sightings = [{"SightingEGNo": 1150, "Whale Name": "Gemini", "Latitude": 41.0286, "Longitude": -69.66456, "RegionCode": "GSC"}, {"SightingEGNo": 1150, "Whale Name": "Gemini", "Latitude": 41.44357, "Longitude": -69.35122, "RegionCode": "GSC"}, {"SightingEGNo": 1150, "Whale Name": "Gemini", "Latitude": 41.82595, "Longitude": -70.35624, "RegionCode": "NE"}, {"SightingEGNo": 1150, "Whale Name": "Gemini", "Latitude": 41.88817, "Longitude": -70.34476, "RegionCode": "NE"}, {"SightingEGNo": 1150, "Whale Name": "Gemini", "Latitude": 41.78569, "Longitude": -70.40889, "RegionCode": "NE"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 41.44464, "Longitude": -69.3, "RegionCode": "GSC"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 41.87136, "Longitude": -70.37876, "RegionCode": "NE"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 41.85076, "Longitude": -70.38068, "RegionCode": "NE"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.77985, "Longitude": -63.9997, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 48.11728, "Longitude": -63.6481, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.7775, "Longitude": -64.2195, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.77366, "Longitude": -64.19583, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 48.20346, "Longitude": -63.58532, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.81202, "Longitude": -63.97085, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 49.98991, "Longitude": -64.4238, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 49.9959, "Longitude": -64.42564, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 49.99412, "Longitude": -64.66303, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.02392, "Longitude": -64.66542, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.02916, "Longitude": -64.35536, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.02624, "Longitude": -64.39936, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.00604, "Longitude": -64.62608, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.02321, "Longitude": -64.41153, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.03405, "Longitude": -64.42216, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.01866, "Longitude": -64.50892, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.01988, "Longitude": -64.47934, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.0655, "Longitude": -64.34681, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.0025, "Longitude": -64.43487, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 42.06241, "Longitude": -70.24984, "RegionCode": "NE"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.75777, "Longitude": -64.2136, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.76037, "Longitude": -64.2232, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.77563, "Longitude": -64.1986, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.75701, "Longitude": -64.246, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.77281, "Longitude": -64.2278, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.78474, "Longitude": -64.2315, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.80667, "Longitude": -64.2337, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.7872, "Longitude": -64.22808, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.7782, "Longitude": -64.1879, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.7877, "Longitude": -64.1915, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 47.7768, "Longitude": -64.187, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 50.02102, "Longitude": -64.41247, "RegionCode": "NRTH"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 41.86857, "Longitude": -70.47091, "RegionCode": "NE"}, {"SightingEGNo": 1507, "Whale Name": "Manta", "Latitude": 41.99978, "Longitude": -70.33168, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 42.01285, "Longitude": -70.12417, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 41.97399, "Longitude": -70.20445, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 42.35377, "Longitude": -70.84393, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 41.88954, "Longitude": -70.22991, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 41.99978, "Longitude": -70.16272, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 42.01443, "Longitude": -70.1385, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 49.99401, "Longitude": -64.32796, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.02754, "Longitude": -64.47473, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.03209, "Longitude": -64.36666, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.02295, "Longitude": -64.36372, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.01036, "Longitude": -64.64214, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.06138, "Longitude": -64.36532, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.02497, "Longitude": -64.37296, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.07799, "Longitude": -64.50196, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.02656, "Longitude": -64.47093, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 50.01718, "Longitude": -64.46193, "RegionCode": "NRTH"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 41.88975, "Longitude": -70.21448, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 41.88937, "Longitude": -70.21625, "RegionCode": "NE"}, {"SightingEGNo": 1701, "Whale Name": "Aphrodite", "Latitude": 40.4606, "Longitude": -70.6423, "RegionCode": "MIDA"}, {"SightingEGNo": 2223, "Whale Name": "Calvin", "Latitude": 47.82131, "Longitude": -63.86951, "RegionCode": "NRTH"}, {"SightingEGNo": 2223, "Whale Name": "Calvin", "Latitude": 47.71038, "Longitude": -64.18425, "RegionCode": "NRTH"}, {"SightingEGNo": 2223, "Whale Name": "Calvin", "Latitude": 47.70962, "Longitude": -64.1785, "RegionCode": "NRTH"}, {"SightingEGNo": 2223, "Whale Name": "Calvin", "Latitude": 48.09236, "Longitude": -62.6307, "RegionCode": "NRTH"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.92903, "Longitude": -70.16152, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.92233, "Longitude": -70.2172, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.9276, "Longitude": -70.1616, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.9266, "Longitude": -70.14752, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.92217, "Longitude": -70.15887, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.91517, "Longitude": -70.22128, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.97787, "Longitude": -70.17443, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.86982, "Longitude": -70.22575, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 42.01374, "Longitude": -70.22705, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.90675, "Longitude": -70.15763, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.94076, "Longitude": -70.22877, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 42.02535, "Longitude": -70.15807, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 42.00435, "Longitude": -70.15317, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 42.04095, "Longitude": -70.17115, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 42.02155, "Longitude": -70.16917, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.91577, "Longitude": -70.25352, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.996, "Longitude": -70.2215, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 42.02517, "Longitude": -70.16417, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 42.02717, "Longitude": -70.15967, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 36.84055, "Longitude": -75.35836, "RegionCode": "MIDA"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 36.84055, "Longitude": -75.3584, "RegionCode": "MIDA"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 36.84748, "Longitude": -75.3491, "RegionCode": "MIDA"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.91599, "Longitude": -70.22158, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.89828, "Longitude": -70.16382, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.90467, "Longitude": -70.21543, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 42.02517, "Longitude": -70.15717, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.90808, "Longitude": -70.16618, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.90274, "Longitude": -70.2184, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.90008, "Longitude": -70.16162, "RegionCode": "NE"}, {"SightingEGNo": 2440, "Whale Name": "Shackelton", "Latitude": 41.91151, "Longitude": -70.30001, "RegionCode": "NE"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 47.90725, "Longitude": -64.0373, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 47.70883, "Longitude": -64.04867, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 47.72459, "Longitude": -64.03178, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 47.92712, "Longitude": -63.79166, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 47.77593, "Longitude": -63.9705, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 47.82315, "Longitude": -63.99786, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 48.06883, "Longitude": -63.58402, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 50.03052, "Longitude": -64.51417, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 50.01926, "Longitude": -64.51208, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 50.06252, "Longitude": -64.36433, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 48.0195, "Longitude": -63.80227, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 47.99969, "Longitude": -63.79688, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 50.011, "Longitude": -64.43017, "RegionCode": "NRTH"}, {"SightingEGNo": 2503, "Whale Name": "Boomerang", "Latitude": 42.88831, "Longitude": -70.24022, "RegionCode": "JL"}, {"SightingEGNo": 3532, "Whale Name": "Resolution", "Latitude": 38.78305, "Longitude": -74.44167, "RegionCode": "MIDA"}, {"SightingEGNo": 3532, "Whale Name": "Resolution", "Latitude": 38.76813, "Longitude": -74.46169, "RegionCode": "MIDA"}, {"SightingEGNo": 3532, "Whale Name": "Resolution", "Latitude": 39.42533, "Longitude": -73.45992, "RegionCode": "MIDA"}, {"SightingEGNo": 3532, "Whale Name": "Resolution", "Latitude": 40.551, "Longitude": -70.7083, "RegionCode": "MIDA"}];
-const whaleMeta = {"Manta": {"eg": 1507, "count": 37, "topRegion": "the Gulf of St. Lawrence", "update": "Placeholder update for Manta (EG 1507). This space is reserved for a short narrative on the whale's most recent movements, health observations from field biologists, and any notable behavior such as feeding, socializing, or mother-calf activity. It can also cover entanglement or vessel-strike history, if any, and how sponsorship funding is supporting continued monitoring of this individual. A few lines on Manta's known life history \u2014 birth year, family line, distinguishing markings \u2014 could go here as well. Check back after the next survey season for a fresh update."}, "Shackelton": {"eg": 2440, "count": 30, "topRegion": "Cape Cod Bay", "update": "Placeholder update for Shackelton (EG 2440). This space is reserved for a short narrative on the whale's most recent movements, health observations from field biologists, and any notable behavior such as feeding, socializing, or mother-calf activity. It can also cover entanglement or vessel-strike history, if any, and how sponsorship funding is supporting continued monitoring of this individual. A few lines on Shackelton's known life history \u2014 birth year, family line, distinguishing markings \u2014 could go here as well. Check back after the next survey season for a fresh update."}, "Aphrodite": {"eg": 1701, "count": 19, "topRegion": "the Gulf of St. Lawrence", "update": "Placeholder update for Aphrodite (EG 1701). This space is reserved for a short narrative on the whale's most recent movements, health observations from field biologists, and any notable behavior such as feeding, socializing, or mother-calf activity. It can also cover entanglement or vessel-strike history, if any, and how sponsorship funding is supporting continued monitoring of this individual. A few lines on Aphrodite's known life history \u2014 birth year, family line, distinguishing markings \u2014 could go here as well. Check back after the next survey season for a fresh update."}, "Boomerang": {"eg": 2503, "count": 14, "topRegion": "the Gulf of St. Lawrence", "update": "Placeholder update for Boomerang (EG 2503). This space is reserved for a short narrative on the whale's most recent movements, health observations from field biologists, and any notable behavior such as feeding, socializing, or mother-calf activity. It can also cover entanglement or vessel-strike history, if any, and how sponsorship funding is supporting continued monitoring of this individual. A few lines on Boomerang's known life history \u2014 birth year, family line, distinguishing markings \u2014 could go here as well. Check back after the next survey season for a fresh update."}, "Gemini": {"eg": 1150, "count": 5, "topRegion": "Cape Cod Bay", "update": "Placeholder update for Gemini (EG 1150). This space is reserved for a short narrative on the whale's most recent movements, health observations from field biologists, and any notable behavior such as feeding, socializing, or mother-calf activity. It can also cover entanglement or vessel-strike history, if any, and how sponsorship funding is supporting continued monitoring of this individual. A few lines on Gemini's known life history \u2014 birth year, family line, distinguishing markings \u2014 could go here as well. Check back after the next survey season for a fresh update."}, "Calvin": {"eg": 2223, "count": 4, "topRegion": "the Gulf of St. Lawrence", "update": "Placeholder update for Calvin (EG 2223). This space is reserved for a short narrative on the whale's most recent movements, health observations from field biologists, and any notable behavior such as feeding, socializing, or mother-calf activity. It can also cover entanglement or vessel-strike history, if any, and how sponsorship funding is supporting continued monitoring of this individual. A few lines on Calvin's known life history \u2014 birth year, family line, distinguishing markings \u2014 could go here as well. Check back after the next survey season for a fresh update."}, "Resolution": {"eg": 3532, "count": 4, "topRegion": "the Mid-Atlantic Bight", "update": "Placeholder update for Resolution (EG 3532). This space is reserved for a short narrative on the whale's most recent movements, health observations from field biologists, and any notable behavior such as feeding, socializing, or mother-calf activity. It can also cover entanglement or vessel-strike history, if any, and how sponsorship funding is supporting continued monitoring of this individual. A few lines on Resolution's known life history \u2014 birth year, family line, distinguishing markings \u2014 could go here as well. Check back after the next survey season for a fresh update."}};
+const whaleMeta = {"Manta": {"eg": 1507, "count": 37, "topRegion": "the Gulf of St. Lawrence", "update": "Manta has had an active season, turning up again and again in the Gulf of St. Lawrence's rich feeding grounds. Field teams spotted her skim-feeding in dense copepod patches through most of the summer, a good sign for her body condition heading into fall. She was also seen briefly off Cape Cod Bay early in the year, likely on her way north. No entanglement gear or new scarring was noted on any of her recent sightings. Researchers describe her as calm and predictable around survey vessels, making her one of the easier whales to track season to season. Your sponsorship continues to fund the aerial and vessel surveys that keep tabs on her movements."}, "Shackelton": {"eg": 2440, "count": 30, "topRegion": "Cape Cod Bay", "update": "Shackelton spent much of the year close to home in Cape Cod Bay, where he's become a familiar face to the local monitoring team. He was photographed several times feeding at the surface during the spring plankton bloom, tail flukes barely breaking the water. A short trip south to the Mid-Atlantic Bight in late winter suggests he may be exploring new wintering grounds. His overall body condition looks good, with no signs of recent vessel strikes or entanglement. The team is watching closely to see whether he returns to Cape Cod Bay again next season."}, "Aphrodite": {"eg": 1701, "count": 19, "topRegion": "the Gulf of St. Lawrence", "update": "Aphrodite split her time fairly evenly this year between the Gulf of St. Lawrence and Cape Cod Bay, following the food. She was seen socializing with several other whales in a surface active group in June, a behavior researchers always enjoy documenting. A single sighting near the Mid-Atlantic Bight in December hints she may be testing a new southern route. No health concerns were flagged during any of her sightings this year. Thanks to your support, the team was able to fund additional survey days that led to two of these confirmed sightings."}, "Boomerang": {"eg": 2503, "count": 14, "topRegion": "the Gulf of St. Lawrence", "update": "Boomerang has been a Gulf of St. Lawrence regular this year, showing up repeatedly in the same stretch of water east of Anticosti Island. A lone sighting near Jeffreys Ledge earlier in the season suggests he still checks in on old feeding spots from time to time. Photographs from recent encounters show healthy skin condition and no new scarring. The consistency of his sightings has made him one of the better-tracked whales in the catalog this year. Survey teams expect to be back in his usual waters again this fall."}, "Gemini": {"eg": 1150, "count": 5, "topRegion": "Cape Cod Bay", "update": "Gemini has kept a lower profile this year, with sightings concentrated in Cape Cod Bay and a couple of trips through the Great South Channel. Each sighting showed her in good body condition, moving steadily between known feeding areas. Right whales like Gemini can go stretches without being seen simply because they're spread across such a wide range of ocean, so a quiet year isn't necessarily a concerning one. The team will keep watching for her as survey coverage expands next season. Every reported sighting, however brief, helps build a more complete picture of where she spends her time."}, "Calvin": {"eg": 2223, "count": 4, "topRegion": "the Gulf of St. Lawrence", "update": "Calvin was seen exclusively in the Gulf of St. Lawrence this year, all within a fairly tight cluster east of Anticosti Island. That kind of site fidelity is useful for researchers, since it makes it easier to predict where survey teams might catch up with him again. No injuries or entanglement were noted in any of the recent photographs. The team is hopeful for more frequent sightings as monitoring effort in the Gulf continues to grow. We'll share an update as soon as Calvin turns up again."}, "Resolution": {"eg": 3532, "count": 4, "topRegion": "the Mid-Atlantic Bight", "update": "Resolution had a quiet but reassuring year, seen four times along the Mid-Atlantic Bight, well south of where most of the catalog's whales spend their summers. Sightings clustered off New Jersey and Virginia, an area increasingly recognized as important winter habitat for right whales. Each encounter showed Resolution in solid body condition with no signs of vessel strike or entanglement. Because this region sees less consistent survey coverage than New England or Canada, every sighting here is especially valuable to researchers. Your sponsorship is helping fund expanded monitoring efforts along this stretch of coast."}};
+const whaleBio = {
+  Manta:      { birthYear: 1985, sex: "Female",  age: 41 },
+  Shackelton: { birthYear: 1994, sex: "Male",     age: 32 },
+  Aphrodite:  { birthYear: 1987, sex: "Female",   age: 39 },
+  Boomerang:  { birthYear: 1995, sex: "Male",     age: 31 },
+  Gemini:     { birthYear: 1981, sex: "Unknown",  age: 45 },
+  Calvin:     { birthYear: 1992, sex: "Female",   age: 34 },
+  Resolution: { birthYear: 2001, sex: "Male",     age: 25 }
+};
 
 const whaleOrder = ["Manta","Shackelton","Aphrodite","Boomerang","Gemini","Calvin","Resolution"];
 const colors = {Manta:"#2a78d6", Shackelton:"#eb6834", Aphrodite:"#1baf7a", Boomerang:"#eda100", Gemini:"#e87ba4", Calvin:"#4a3aa7", Resolution:"#e34948"};
@@ -171,25 +183,35 @@ function swatchMarkup(name) {
   return `<path d="${symbolPath(shapeOf[name])}" transform="scale(0.42)" fill="${colors[name]}" stroke="${colors[name]}" stroke-width="0.8"></path>`;
 }
 
-const EXTENT_BOUNDS = { type: "MultiPoint", coordinates: [[-80.6, 25.4], [-61.7, 50.7]] };
-function makeProjection(w, h) {
-  return d3.geoMercator().fitExtent([[22, 22], [w - 22, h - 22]], EXTENT_BOUNDS);
+const FULL_EXTENT_BOUNDS = { type: "MultiPoint", coordinates: [[-80.6, 25.4], [-61.7, 50.7]] };
+function makeProjection(w, h, bounds) {
+  return d3.geoMercator().fitExtent([[22, 22], [w - 22, h - 22]], bounds || FULL_EXTENT_BOUNDS);
+}
+function whaleExtentBounds(name) {
+  const pts = sightings.filter(d => d["Whale Name"] === name);
+  const lons = pts.map(d => d.Longitude), lats = pts.map(d => d.Latitude);
+  const minLon = Math.min(...lons), maxLon = Math.max(...lons);
+  const minLat = Math.min(...lats), maxLat = Math.max(...lats);
+  const padLon = Math.max((maxLon - minLon) * 0.35, 0.6);
+  const padLat = Math.max((maxLat - minLat) * 0.35, 0.6);
+  return { type: "MultiPoint", coordinates: [[minLon - padLon, minLat - padLat], [maxLon + padLon, maxLat + padLat]] };
 }
 
-const PRIMARY_W = 620, PRIMARY_H = 980;
-const MINI_W = 420, MINI_H = 660;
-const primaryProjection = makeProjection(PRIMARY_W, PRIMARY_H);
-const primaryPath = d3.geoPath(primaryProjection);
-const miniProjection = makeProjection(MINI_W, MINI_H);
-const miniPath = d3.geoPath(miniProjection);
+const PRIMARY_W = 680, PRIMARY_H = 880;
+const MINI_W = 760, MINI_H = 460;
 
 let landFeatures = null;
 
 // ---------- reusable map factory ----------
 function mountMap(parent, opts) {
-  const { data, width, height, projection, path, showClusters, showLegend, hintText } = opts;
+  const { data, showClusters, showLegend, hintText } = opts;
+  let width = opts.width, height = opts.height;
+  let extentBounds = opts.extentBounds || FULL_EXTENT_BOUNDS;
+  let scaleMin = opts.scaleMin || 1;
+  let projection = makeProjection(width, height, extentBounds);
+  let path = d3.geoPath(projection);
 
-  const stage = parent.append("div").attr("class", "stage");
+  const stage = parent.append("div").attr("class", "stage").style("aspect-ratio", `${width} / ${height}`);
   const svg = stage.append("svg").attr("class", "map-svg").attr("viewBox", `0 0 ${width} ${height}`);
   const zoomctl = stage.append("div").attr("class", "zoomctl");
   const zoomInBtn = zoomctl.append("button").attr("aria-label", "Zoom in").text("+");
@@ -241,7 +263,7 @@ function mountMap(parent, opts) {
       .attr("stroke-width", d => d["Whale Name"] === "Resolution" ? 1.6 : 1)
       .on("mouseenter", (event, d) => {
         const [x, y] = d3.pointer(event, stageNode);
-        tooltip.html(`<div class="tt-name">${d["Whale Name"]}</div><div class="tt-sub">EG No. ${d.SightingEGNo}</div>`)
+        tooltip.html(`<div class="tt-name">${d["Whale Name"]}</div><div class="tt-sub">Eg #${d.SightingEGNo}</div>`)
           .style("left", (x + 14) + "px").style("top", (y - 10) + "px").style("opacity", 1);
       })
       .on("mousemove", (event) => {
@@ -355,15 +377,15 @@ function mountMap(parent, opts) {
     const dx = Math.max(30, p1[0] - p0[0]);
     const dy = Math.max(30, p1[1] - p0[1]);
     const cx = (p0[0] + p1[0]) / 2, cy = (p0[1] + p1[1]) / 2;
-    const scale = Math.max(1, Math.min(10, 0.8 / Math.max(dx / width, dy / height)));
+    const scale = Math.max(scaleMin, Math.min(10, 0.8 / Math.max(dx / width, dy / height)));
     const tx = width / 2 - scale * cx;
     const ty = height / 2 - scale * cy;
     svg.transition().duration(650).call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));
   }
 
   const zoom = d3.zoom()
-    .scaleExtent([1, 10])
-    .translateExtent([[-width * 0.4, -height * 0.4], [width * 1.4, height * 1.4]])
+    .scaleExtent([scaleMin, 10])
+    .translateExtent([[-width * 0.12, -height * 0.12], [width * 1.12, height * 1.12]])
     .on("zoom", (event) => {
       currentTransform = event.transform;
       gRoot.attr("transform", currentTransform);
@@ -401,122 +423,136 @@ function mountMap(parent, opts) {
   }
 
   return {
-    redrawLand: () => {
-      if (landFeatures) gLand.selectAll("path").data(landFeatures).join("path").attr("class", "land").attr("d", path);
+    focusWhale: (name) => {
+      activeWhale = name;
+      syncWhaleFilterUI();
+      const whalePoints = data.filter(d => d["Whale Name"] === name);
+      if (!whalePoints.length) return;
+      const lons = whalePoints.map(d => d.Longitude), lats = whalePoints.map(d => d.Latitude);
+      zoomToBBox([Math.min(...lons), Math.min(...lats), Math.max(...lons), Math.max(...lats)]);
+    },
+    reset: () => {
+      activeWhale = null;
+      closePopout();
+      syncWhaleFilterUI();
+      svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
     }
   };
 }
 
-// ---------- The Whales hero section ----------
-const heroGrid = document.getElementById("heroGrid");
-const heroModal = document.getElementById("heroModal");
-const heroDetail = document.getElementById("heroDetail");
-let activeHero = null;
+// ---------- whale switcher + profile ----------
+const whaleSwitcher = document.getElementById("whaleSwitcher");
+const whaleProfile = document.getElementById("whaleProfile");
+let activeWhale = null;
 
-function closeHeroDetail() {
-  activeHero = null;
-  heroModal.classList.remove("open");
-  heroGrid.querySelectorAll(".hero-card").forEach(el => { el.classList.remove("active"); el.style.borderColor = ""; });
+document.getElementById("allMapLink").addEventListener("click", () => {
+  document.getElementById("allMapSection").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+// Populate with the current visitor's sponsored whale name(s) - e.g. ["Resolution"] - to
+// float those chips to the front of the switcher, ahead of the alphabetical ordering below,
+// and to select that whale's profile by default on page load.
+const mySponsoredWhales = [];
+const whaleDisplayOrder = [
+  ...mySponsoredWhales.filter(n => whaleOrder.includes(n)),
+  ...[...whaleOrder].sort((a, b) => a.localeCompare(b)).filter(n => !mySponsoredWhales.includes(n))
+];
+
+whaleDisplayOrder.forEach(name => {
+  const isMine = mySponsoredWhales.includes(name);
+  const chip = document.createElement("button");
+  chip.type = "button";
+  chip.className = "switcher-chip";
+  chip.dataset.name = name;
+  chip.innerHTML = `
+    <svg class="switcher-swatch" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
+    <span>${name}</span>
+    ${isMine ? '<span class="switcher-star">&#9733;</span>' : ""}
+  `;
+  chip.addEventListener("click", () => selectWhale(name));
+  whaleSwitcher.appendChild(chip);
+});
+
+function setActiveChip(name) {
+  whaleSwitcher.querySelectorAll(".switcher-chip").forEach(el => {
+    el.classList.toggle("active", el.dataset.name === name);
+  });
 }
 
-function openHeroDetail(name) {
-  activeHero = name;
-  heroGrid.querySelectorAll(".hero-card").forEach(el => {
-    const isActive = el.dataset.name === name;
-    el.classList.toggle("active", isActive);
-    el.style.borderColor = isActive ? colors[name] : "";
-  });
+function selectWhale(name) {
+  activeWhale = name;
+  setActiveChip(name);
+  renderProfile(name);
+}
+
+function renderProfile(name) {
   const m = whaleMeta[name];
-  heroDetail.innerHTML = `
-    <div class="hero-detail-head">
-      <div class="hero-detail-id">
-        <svg class="hero-swatch" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
-        <div>
-          <div class="hero-detail-name">${name}</div>
-          <div class="hero-detail-eg">EG ${m.eg}</div>
-        </div>
+  const bio = whaleBio[name];
+  const isMine = mySponsoredWhales.includes(name);
+  whaleProfile.innerHTML = `
+    <div class="profile-header">
+      <div class="profile-photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#918f86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect>
+          <circle cx="8" cy="10" r="1.6"></circle>
+          <path d="M2.5 16l5-5 4.5 4.5L17 10l4.5 5.5"></path>
+        </svg>
+        <span>Photo placeholder</span>
       </div>
-      <button class="hero-detail-close" aria-label="Close">&times;</button>
+      <div class="profile-details">
+        <div class="profile-top">
+          <svg class="switcher-swatch" width="18" height="18" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
+          <div class="profile-name">${name}</div>
+          <span class="profile-eg">Eg #${m.eg}</span>
+          ${isMine ? '<span class="profile-badge">Your whale</span>' : ""}
+        </div>
+        <div class="profile-summary">${m.count} sightings, mostly in ${m.topRegion}</div>
+        <div class="profile-fields">
+          <div class="profile-field"><span class="profile-field-label">Birth Year:</span><span class="profile-field-value">${bio.birthYear}</span></div>
+          <div class="profile-field"><span class="profile-field-label">Sex:</span><span class="profile-field-value">${bio.sex}</span></div>
+          <div class="profile-field"><span class="profile-field-label">Age:</span><span class="profile-field-value">${bio.age}</span></div>
+        </div>
+        <div class="update-label">Update</div>
+        <div class="update-box">${m.update}</div>
+      </div>
     </div>
-    <div class="hero-detail-meta">${m.count} sightings, mostly in ${m.topRegion}</div>
-    <div class="update-label">Update</div>
-    <div class="update-box">${m.update}</div>
+    <div class="profile-map-col">
+      <div class="profile-map-caption">Where ${name} has been sighted</div>
+      <div id="profileMapMount"></div>
+    </div>
   `;
-  heroModal.classList.add("open");
-  heroDetail.querySelector(".hero-detail-close").addEventListener("click", closeHeroDetail);
+
+  if (landFeatures) mountProfileMap(name);
 }
 
-heroModal.addEventListener("click", (event) => {
-  if (event.target === heroModal) closeHeroDetail();
-});
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && activeHero) closeHeroDetail();
-});
-
-whaleOrder.forEach(name => {
-  const m = whaleMeta[name];
-  const card = document.createElement("button");
-  card.type = "button";
-  card.className = "hero-card";
-  card.dataset.name = name;
-  card.innerHTML = `
-    <div class="hero-thumb">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#918f86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect>
-        <circle cx="8" cy="10" r="1.6"></circle>
-        <path d="M2.5 16l5-5 4.5 4.5L17 10l4.5 5.5"></path>
-      </svg>
-      <span>Photo placeholder</span>
-    </div>
-    <div class="hero-card-top">
-      <svg class="hero-swatch" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
-      <span class="hero-eg">EG ${m.eg}</span>
-    </div>
-    <div class="hero-name">${name}</div>
-    <div class="hero-summary">${m.count} sightings, mostly in ${m.topRegion}</div>
-    <div class="hero-cta">
-      <span>Click for more information</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-    </div>
-  `;
-  card.addEventListener("click", () => {
-    if (activeHero === name) { closeHeroDetail(); return; }
-    openHeroDetail(name);
+function mountProfileMap(name) {
+  const mount = d3.select("#profileMapMount");
+  mount.html("");
+  const data = sightings.filter(d => d["Whale Name"] === name);
+  mountMap(mount, {
+    data,
+    width: MINI_W, height: MINI_H,
+    extentBounds: whaleExtentBounds(name),
+    scaleMin: 0.6,
+    showClusters: false, showLegend: false,
+    hintText: "Scroll to zoom, drag to pan, hover a point for details."
   });
-  heroGrid.appendChild(card);
-});
+}
 
 // ---------- build maps once land data is loaded ----------
+let primaryMapApi = null;
 d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json").then(world => {
   const land = topojson.feature(world, world.objects.land);
   landFeatures = land.features;
 
-  mountMap(d3.select("#primaryMap"), {
+  const defaultWhale = mySponsoredWhales[0] || whaleDisplayOrder[0];
+  selectWhale(defaultWhale);
+
+  primaryMapApi = mountMap(d3.select("#primaryMap"), {
     data: sightings,
     width: PRIMARY_W, height: PRIMARY_H,
-    projection: primaryProjection, path: primaryPath,
     showClusters: true, showLegend: true,
     hintText: "Scroll or use the buttons to zoom, drag to pan &middot; click a numbered cluster for details &middot; hover a point for whale info &middot; click a name below to isolate that whale"
-  });
-
-  const miniGrid = d3.select("#miniGrid");
-  whaleOrder.forEach(name => {
-    const m = whaleMeta[name];
-    const block = miniGrid.append("div").attr("class", "mini-map-block");
-    const head = block.append("div").attr("class", "mini-map-head");
-    head.append("svg").attr("class", "hero-swatch").attr("viewBox", "-6 -6 12 12").html(swatchMarkup(name));
-    head.append("span").attr("class", "mini-map-name").text(name);
-    head.append("span").attr("class", "mini-map-eg").text(`EG ${m.eg}`);
-    head.append("span").attr("class", "mini-map-count").text(`${m.count} sightings`);
-
-    const whaleData = sightings.filter(d => d["Whale Name"] === name);
-    mountMap(block, {
-      data: whaleData,
-      width: MINI_W, height: MINI_H,
-      projection: miniProjection, path: miniPath,
-      showClusters: false, showLegend: false,
-      hintText: "Scroll to zoom, drag to pan, hover a point for details."
-    });
   });
 });
 </script>
