@@ -4,26 +4,55 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Right Whale Sponsorship Updates</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  html, body { margin: 0; padding: 0; background: #f5f9fb; font-family: "Nunito Sans", -apple-system, "Segoe UI", Arial, sans-serif; color: #1c1c1a; }
+  /* Helvetica Neue LT Std is a licensed typeface (Linotype/Monotype) - these @font-face rules
+     point at local font files that need to be supplied and hosted alongside this page. Until
+     those files are added, the fallback stacks below (Arial Narrow / Arial Black / Helvetica)
+     approximate each weight so the page still renders sensibly. */
+  @font-face {
+    font-family: "HelveticaNeueLTStd-MdCn";
+    src: url("fonts/HelveticaNeueLTStd-MdCn.woff2") format("woff2"),
+         url("fonts/HelveticaNeueLTStd-MdCn.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "HelveticaNeueLTStd-Hv";
+    src: url("fonts/HelveticaNeueLTStd-Hv.woff2") format("woff2"),
+         url("fonts/HelveticaNeueLTStd-Hv.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "HelveticaNeueLTStd-Roman";
+    src: url("fonts/HelveticaNeueLTStd-Roman.woff2") format("woff2"),
+         url("fonts/HelveticaNeueLTStd-Roman.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  :root {
+    --font-condensed: "HelveticaNeueLTStd-MdCn", "Arial Narrow", Arial, sans-serif;
+    --font-alt-header: "HelveticaNeueLTStd-Hv", "Arial Black", Arial, sans-serif;
+    --font-body: "HelveticaNeueLTStd-Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  html, body { margin: 0; padding: 0; background: #f5f9fb; font-family: var(--font-body); font-size: 10pt; line-height: 14pt; color: #1c1c1a; }
   .site-header { width: 100%; background: #ffffff; border-bottom: 3px solid #0a3049; box-sizing: border-box; }
   .site-header-inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
   .org-logo { display: flex; align-items: center; }
   .org-logo img { display: block; height: 44px; width: auto; }
-  .org-logo.neaq-logo { background: #0a3049; padding: 8px 14px; border-radius: 8px; }
   .org-divider { width: 1px; height: 36px; background: #d8d6cc; }
 
   #wrap { max-width: 1080px; margin: 0 auto; padding: 40px 24px 64px; }
 
   /* header */
   .page-header { max-width: 640px; margin: 0 0 40px; }
-  .page-title { font-family: "Poppins", -apple-system, "Segoe UI", Arial, sans-serif; font-size: 34px; font-weight: 700; line-height: 1.2; margin: 0 0 10px; color: #0a3049; }
+  .page-title { font-family: var(--font-alt-header); font-size: 34px; font-weight: 800; letter-spacing: 0.06em; line-height: 1.25; margin: 0 0 10px; color: #0a3049; }
   .page-subtitle { font-size: 15.5px; line-height: 1.6; color: #6b6a64; margin: 0; }
 
-  .section-title { font-family: "Poppins", -apple-system, "Segoe UI", Arial, sans-serif; font-size: 22px; font-weight: 700; color: #0a3049; margin: 0 0 4px; }
+  .section-title { font-family: var(--font-condensed); font-size: 24px; font-weight: 500; color: #0a3049; margin: 0 0 4px; }
   .section-sub { font-size: 13.5px; color: #6b6a64; margin: 0 0 18px; }
   section.block { margin-bottom: 56px; }
   .map-section-wide { width: 100%; box-sizing: border-box; padding: 0 24px 56px; display: flex; justify-content: center; }
@@ -48,7 +77,7 @@
   .profile-photo span { font-size: 11.5px; color: #918f86; letter-spacing: 0.02em; text-align: center; padding: 0 6px; }
   .profile-details { flex: 1 1 auto; min-width: 0; }
   .profile-top { display: flex; align-items: center; gap: 9px; margin-bottom: 4px; flex-wrap: wrap; }
-  .profile-name { font-family: "Poppins", -apple-system, "Segoe UI", Arial, sans-serif; font-size: 25px; font-weight: 700; color: #0a3049; }
+  .profile-name { font-family: var(--font-condensed); font-size: 27px; font-weight: 500; color: #0a3049; }
   .profile-eg { font-size: 12px; color: #918f86; font-variant-numeric: tabular-nums; }
   .profile-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: #0a3049; background: #d3f0f6; padding: 2px 8px; border-radius: 999px; }
   .profile-summary { font-size: 13.5px; color: #6b6a64; margin: 6px 0 14px; }
@@ -125,7 +154,7 @@
 
 <div class="site-header">
   <div class="site-header-inner">
-    <div class="org-logo neaq-logo">
+    <div class="org-logo">
       <img src="neaq-logo.png" alt="New England Aquarium">
     </div>
     <div class="org-divider"></div>
