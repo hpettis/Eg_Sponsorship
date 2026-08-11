@@ -126,7 +126,8 @@
   .zoomctl { position: absolute; top: 10px; right: 10px; z-index: 20; display: flex; flex-direction: column; gap: 2px; background: #ffffff; border: 0.5px solid #d8d6cc; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
   .zoomctl button { width: 42px; height: 40px; border: none; background: #ffffff; color: #33322e; font-size: 19px; cursor: pointer; line-height: 1; }
   .zoomctl button:hover { background: #f0efe9; }
-  .zoomctl button:first-child { border-bottom: 0.5px solid #e2e0d6; }
+  .zoomctl button:not(:last-child) { border-bottom: 0.5px solid #e2e0d6; }
+.zoomctl button.reset-btn { font-size: 17px; }
 
   .map-activate { position: absolute; inset: 0; z-index: 15; display: flex; align-items: center; justify-content: center; background: rgba(28,28,26,0.14); cursor: pointer; transition: opacity 0.15s ease; }
   .map-activate-badge { display: flex; align-items: center; gap: 8px; background: rgba(10,48,73,0.92); color: #ffffff; font-size: 13.5px; font-weight: 600; padding: 10px 16px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); pointer-events: none; }
@@ -325,6 +326,7 @@ function mountMap(parent, opts) {
   const zoomctl = stage.append("div").attr("class", "zoomctl");
   const zoomInBtn = zoomctl.append("button").attr("aria-label", "Zoom in").text("+");
   const zoomOutBtn = zoomctl.append("button").attr("aria-label", "Zoom out").html("&minus;");
+  const resetBtn = showClusters ? zoomctl.append("button").attr("class", "reset-btn").attr("aria-label", "Reset map").attr("title", "Reset map").html("&#8634;") : null;
   const tooltip = stage.append("div").attr("class", "tooltip");
   const popoutEl = showClusters ? stage.append("div").attr("class", "popout") : null;
 
@@ -544,6 +546,14 @@ function mountMap(parent, opts) {
     });
   }
 
+   function resetMap() {
+    activeWhale = null;
+    closePopout();
+    syncWhaleFilterUI();
+    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+  }
+  if (resetBtn) resetBtn.on("click", resetMap);
+
   return {
     focusWhale: (name) => {
       activeWhale = name;
@@ -553,12 +563,7 @@ function mountMap(parent, opts) {
       const lons = whalePoints.map(d => d.Longitude), lats = whalePoints.map(d => d.Latitude);
       zoomToBBox([Math.min(...lons), Math.min(...lats), Math.max(...lons), Math.max(...lats)]);
     },
-    reset: () => {
-      activeWhale = null;
-      closePopout();
-      syncWhaleFilterUI();
-      svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
-    }
+    reset: resetMap
   };
 }
 
