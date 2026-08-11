@@ -302,6 +302,7 @@ function mountMap(parent, opts) {
   let projection = makeProjection(width, height, extentBounds);
   let path = d3.geoPath(projection);
 
+  parent.html("");
   const stage = parent.append("div").attr("class", "stage").style("aspect-ratio", `${width} / ${height}`);
   const svg = stage.append("svg").attr("class", "map-svg").attr("viewBox", `0 0 ${width} ${height}`);
   const zoomctl = stage.append("div").attr("class", "zoomctl");
