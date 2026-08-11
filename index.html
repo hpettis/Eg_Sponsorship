@@ -70,36 +70,33 @@
   .switcher-chip.active .switcher-star { color: #d3f0f6; }
 
   /* profile */
-  .profile { display: flex; flex-direction: column; gap: 24px; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 14px; padding: 26px 28px; }
-  .profile-header { display: flex; gap: 18px; }
-  .profile-photo { flex: 0 0 41%; aspect-ratio: 1 / 1; border-radius: 10px; background: repeating-linear-gradient(45deg, #f0efe9, #f0efe9 8px, #e7e5db 8px, #e7e5db 16px); border: 1px dashed #c9c7bc; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+  .profile { display: flex; flex-direction: column; gap: 22px; background: #ffffff; border: 1.5px solid #d8d6cc; border-radius: 14px; padding: 26px 28px; }
+
+  .profile-media-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; }
+  .profile-photo-col { flex: 1 1 320px; min-width: 240px; }
+  .profile-map-col { flex: 1.3 1 420px; min-width: 300px; }
+
+  .profile-photo { width: 100%; aspect-ratio: 4 / 3; border-radius: 10px; background: repeating-linear-gradient(45deg, #f0efe9, #f0efe9 8px, #e7e5db 8px, #e7e5db 16px); border: 1px dashed #c9c7bc; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; box-sizing: border-box; }
   .profile-photo svg { opacity: 0.5; width: 40px; height: 40px; }
   .profile-photo span { font-size: 12.5px; color: #6b6862; letter-spacing: 0.02em; text-align: center; padding: 0 6px; }
-  .profile-details { flex: 1 1 auto; min-width: 0; }
   .profile-top { display: flex; align-items: center; gap: 9px; margin-bottom: 4px; flex-wrap: wrap; }
   .profile-name { font-family: var(--font-condensed); font-size: 27px; font-weight: 500; color: #0a3049; }
   .profile-eg { font-size: 13.5px; color: #6b6862; font-variant-numeric: tabular-nums; }
   .profile-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: #0a3049; background: #d3f0f6; padding: 3px 9px; border-radius: 999px; }
   .profile-summary { font-size: 14.5px; color: #55534d; margin: 6px 0 14px; }
-  .profile-fields { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; }
+  .profile-fields { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 0; }
   .profile-field { display: flex; align-items: baseline; gap: 6px; }
-  .profile-field-label { flex: 0 0 84px; font-size: 13.5px; color: #55534d; font-weight: 600; }
+  .profile-field-label { font-size: 13.5px; color: #55534d; font-weight: 600; }
   .profile-field-value { font-size: 14.5px; color: #1c1c1a; }
   .update-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6b6862; margin-bottom: 6px; }
   .update-box { border: 1.5px dashed #d8d6cc; border-radius: 10px; padding: 14px 16px; font-size: 14.5px; line-height: 1.65; color: #33322e; background: #fbfaf6; }
 
-  .profile-map-col { width: 100%; padding-top: 22px; border-top: 1px solid #ece9df; }
-  .profile-map-caption { font-size: 13.5px; font-weight: 600; color: #0a3049; margin-bottom: 8px; }
+  .profile-media-caption { font-size: 13.5px; font-weight: 600; color: #0a3049; margin-bottom: 8px; }
 
   .all-map-link-row { margin: -8px 0 22px; }
   .all-map-link { display: inline-flex; align-items: center; gap: 5px; font-size: 14.5px; font-weight: 600; color: #0a3049; text-decoration: none; background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
   .all-map-link svg { width: 13px; height: 13px; transition: transform 0.12s ease; }
   .all-map-link:hover svg { transform: translateX(3px); }
-
-  @media (max-width: 600px) {
-    .profile-header { flex-direction: column; }
-    .profile-photo { flex: 0 0 auto; width: 100%; aspect-ratio: 16 / 9; }
-  }
 
   /* maps (shared by profile mini-map and the full "all whales" map) */
   .map-sub { font-size: 14.5px; color: #55534d; margin: 0 0 16px; }
@@ -596,35 +593,39 @@ function renderProfile(name) {
   const bio = whaleBio[name];
   const isMine = mySponsoredWhales.includes(name);
   whaleProfile.innerHTML = `
-    <div class="profile-header">
-      <div class="profile-photo">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#918f86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect>
-          <circle cx="8" cy="10" r="1.6"></circle>
-          <path d="M2.5 16l5-5 4.5 4.5L17 10l4.5 5.5"></path>
-        </svg>
-        <span>Photo placeholder</span>
-      </div>
-      <div class="profile-details">
-        <div class="profile-top">
-          <svg class="switcher-swatch" width="18" height="18" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
-          <div class="profile-name">${name}</div>
-          <span class="profile-eg">Eg #${m.eg}</span>
-          ${isMine ? '<span class="profile-badge">Your whale</span>' : ""}
-        </div>
-        <div class="profile-summary">${m.count} sightings, mostly in ${m.topRegion}</div>
-        <div class="profile-fields">
-          <div class="profile-field"><span class="profile-field-label">Birth Year:</span><span class="profile-field-value">${bio.birthYear}</span></div>
-          <div class="profile-field"><span class="profile-field-label">Sex:</span><span class="profile-field-value">${bio.sex}</span></div>
-          <div class="profile-field"><span class="profile-field-label">Age:</span><span class="profile-field-value">${bio.age}</span></div>
-        </div>
-        <div class="update-label">Update</div>
-        <div class="update-box">${m.update}</div>
-      </div>
+    <div class="profile-top">
+      <svg class="switcher-swatch" width="18" height="18" viewBox="-6 -6 12 12">${swatchMarkup(name)}</svg>
+      <div class="profile-name">${name}</div>
+      <span class="profile-eg">Eg #${m.eg}</span>
+      ${isMine ? '<span class="profile-badge">Your whale</span>' : ""}
     </div>
-    <div class="profile-map-col">
-      <div class="profile-map-caption">Where ${name} has been sighted</div>
-      <div id="profileMapMount"></div>
+    <div class="profile-summary">${m.count} sightings, mostly in ${m.topRegion}</div>
+    <div class="profile-fields">
+      <div class="profile-field"><span class="profile-field-label">Birth Year:</span><span class="profile-field-value">${bio.birthYear}</span></div>
+      <div class="profile-field"><span class="profile-field-label">Sex:</span><span class="profile-field-value">${bio.sex}</span></div>
+      <div class="profile-field"><span class="profile-field-label">Age:</span><span class="profile-field-value">${bio.age}</span></div>
+    </div>
+    <div>
+      <div class="update-label">Update</div>
+      <div class="update-box">${m.update}</div>
+    </div>
+    <div class="profile-media-row">
+      <div class="profile-photo-col">
+        <div class="profile-media-caption">Photo of ${name}</div>
+        <div class="profile-photo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#918f86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect>
+            <circle cx="8" cy="10" r="1.6"></circle>
+            <path d="M2.5 16l5-5 4.5 4.5L17 10l4.5 5.5"></path>
+          </svg>
+          <span>Photo placeholder</span>
+        </div>
+        <p class="hint">Photo Credit</p>
+      </div>
+      <div class="profile-map-col">
+        <div class="profile-media-caption">Where ${name} has been sighted</div>
+        <div id="profileMapMount"></div>
+      </div>
     </div>
   `;
 
