@@ -38,7 +38,7 @@
     --font-alt-header: "HelveticaNeueLTStd-Hv", "Arial Black", Arial, sans-serif;
     --font-body: "HelveticaNeueLTStd-Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
-  html, body { margin: 0; padding: 0; background: #f5f9fb; font-family: var(--font-body); font-size: 10pt; line-height: 14pt; color: #1c1c1a; }
+  html, body { margin: 0; padding: 0; background: #f5f9fb; font-family: var(--font-body); font-size: 11pt; line-height: 15pt; color: #1c1c1a; }
   .site-header { width: 100%; background: #ffffff; border-bottom: 3px solid #0a3049; box-sizing: border-box; }
   .site-header-inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
   .org-logo { display: flex; align-items: center; }
@@ -50,10 +50,10 @@
   /* header */
   .page-header { max-width: 640px; margin: 0 0 40px; }
   .page-title { font-family: var(--font-alt-header); font-size: 34px; font-weight: 800; letter-spacing: 0.06em; line-height: 1.25; margin: 0 0 10px; color: #0a3049; }
-  .page-subtitle { font-size: 15.5px; line-height: 1.6; color: #6b6a64; margin: 0; }
+  .page-subtitle { font-size: 16.5px; line-height: 1.6; color: #55534d; margin: 0; }
 
   .section-title { font-family: var(--font-condensed); font-size: 24px; font-weight: 500; color: #0a3049; margin: 0 0 4px; }
-  .section-sub { font-size: 13.5px; color: #6b6a64; margin: 0 0 18px; }
+  .section-sub { font-size: 15px; color: #55534d; margin: 0 0 18px; }
   section.block { margin-bottom: 56px; }
   .map-section-wide { width: 100%; box-sizing: border-box; padding: 0 24px 56px; display: flex; justify-content: center; }
   .map-section-wide-inner { width: 100%; max-width: 1600px; }
@@ -61,12 +61,12 @@
 
   /* whale switcher */
   .whale-switcher { display: flex; gap: 10px; overflow-x: auto; padding: 2px 2px 10px; margin-bottom: 22px; scrollbar-width: thin; }
-  .switcher-chip { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1.5px solid #d8d6cc; background: #ffffff; cursor: pointer; font-size: 13px; font-weight: 600; color: #33322e; white-space: nowrap; font-family: inherit; transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease; }
+  .switcher-chip { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; padding: 10px 16px; min-height: 44px; box-sizing: border-box; border-radius: 999px; border: 1.5px solid #d8d6cc; background: #ffffff; cursor: pointer; font-size: 14.5px; font-weight: 600; color: #33322e; white-space: nowrap; font-family: inherit; transition: background 0.1s ease, border-color 0.1s ease, color 0.1s ease; }
   .switcher-chip:hover { border-color: #0a3049; }
   .switcher-chip:focus-visible { outline: 2px solid #0a3049; outline-offset: 2px; }
   .switcher-chip.active { background: #0a3049; border-color: #0a3049; color: #ffffff; }
-  .switcher-swatch { width: 13px; height: 13px; flex: none; }
-  .switcher-star { color: #d3f0f6; font-size: 12px; line-height: 1; }
+  .switcher-swatch { width: 14px; height: 14px; flex: none; }
+  .switcher-star { color: #d3f0f6; font-size: 13px; line-height: 1; }
   .switcher-chip.active .switcher-star { color: #d3f0f6; }
 
   /* profile */
@@ -74,35 +74,35 @@
   .profile-header { display: flex; gap: 18px; }
   .profile-photo { flex: 0 0 41%; aspect-ratio: 1 / 1; border-radius: 10px; background: repeating-linear-gradient(45deg, #f0efe9, #f0efe9 8px, #e7e5db 8px, #e7e5db 16px); border: 1px dashed #c9c7bc; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
   .profile-photo svg { opacity: 0.5; width: 40px; height: 40px; }
-  .profile-photo span { font-size: 11.5px; color: #918f86; letter-spacing: 0.02em; text-align: center; padding: 0 6px; }
+  .profile-photo span { font-size: 12.5px; color: #6b6862; letter-spacing: 0.02em; text-align: center; padding: 0 6px; }
   .profile-details { flex: 1 1 auto; min-width: 0; }
   .profile-top { display: flex; align-items: center; gap: 9px; margin-bottom: 4px; flex-wrap: wrap; }
   .profile-name { font-family: var(--font-condensed); font-size: 27px; font-weight: 500; color: #0a3049; }
-  .profile-eg { font-size: 12px; color: #918f86; font-variant-numeric: tabular-nums; }
-  .profile-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: #0a3049; background: #d3f0f6; padding: 2px 8px; border-radius: 999px; }
-  .profile-summary { font-size: 13.5px; color: #6b6a64; margin: 6px 0 14px; }
+  .profile-eg { font-size: 13.5px; color: #6b6862; font-variant-numeric: tabular-nums; }
+  .profile-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: #0a3049; background: #d3f0f6; padding: 3px 9px; border-radius: 999px; }
+  .profile-summary { font-size: 14.5px; color: #55534d; margin: 6px 0 14px; }
   .profile-fields { display: flex; flex-direction: column; gap: 8px; margin: 0 0 16px; }
   .profile-field { display: flex; align-items: baseline; gap: 6px; }
-  .profile-field-label { flex: 0 0 78px; font-size: 12.5px; color: #6b6a64; font-weight: 600; }
-  .profile-field-value { font-size: 13.5px; color: #1c1c1a; }
-  .update-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #918f86; margin-bottom: 6px; }
-  .update-box { border: 1.5px dashed #d8d6cc; border-radius: 10px; padding: 13px 15px; font-size: 13.5px; line-height: 1.65; color: #33322e; background: #fbfaf6; }
+  .profile-field-label { flex: 0 0 84px; font-size: 13.5px; color: #55534d; font-weight: 600; }
+  .profile-field-value { font-size: 14.5px; color: #1c1c1a; }
+  .update-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6b6862; margin-bottom: 6px; }
+  .update-box { border: 1.5px dashed #d8d6cc; border-radius: 10px; padding: 14px 16px; font-size: 14.5px; line-height: 1.65; color: #33322e; background: #fbfaf6; }
 
   .profile-map-col { width: 100%; padding-top: 22px; border-top: 1px solid #ece9df; }
-  .profile-map-caption { font-size: 12.5px; font-weight: 600; color: #0a3049; margin-bottom: 8px; }
+  .profile-map-caption { font-size: 13.5px; font-weight: 600; color: #0a3049; margin-bottom: 8px; }
 
   .all-map-link-row { margin: -8px 0 22px; }
-  .all-map-link { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: #0a3049; text-decoration: none; background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
+  .all-map-link { display: inline-flex; align-items: center; gap: 5px; font-size: 14.5px; font-weight: 600; color: #0a3049; text-decoration: none; background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
   .all-map-link svg { width: 13px; height: 13px; transition: transform 0.12s ease; }
   .all-map-link:hover svg { transform: translateX(3px); }
 
-  @media (max-width: 420px) {
+  @media (max-width: 600px) {
     .profile-header { flex-direction: column; }
     .profile-photo { flex: 0 0 auto; width: 100%; aspect-ratio: 16 / 9; }
   }
 
   /* maps (shared by profile mini-map and the full "all whales" map) */
-  .map-sub { font-size: 13px; color: #6b6a64; margin: 0 0 16px; }
+  .map-sub { font-size: 14.5px; color: #55534d; margin: 0 0 16px; }
   .stage { position: relative; width: 100%; background: #eaf3fb; border: 0.5px solid #d8d6cc; border-radius: 10px; overflow: hidden; max-height: 82vh; }
   svg.map-svg { display: block; width: 100%; height: 100%; cursor: grab; }
   svg.map-svg:active { cursor: grabbing; }
@@ -115,38 +115,52 @@
   .cluster-badge circle { fill: #262521; fill-opacity: 0.85; stroke: #ffffff; stroke-width: 2; }
   .cluster-badge:hover circle { fill-opacity: 1; }
   .cluster-badge.active circle { fill: #1c1c1a; fill-opacity: 1; stroke: #00a9c9; stroke-width: 2.5; }
-  .cluster-badge text { fill: #f5f4ee; font-size: 12px; font-weight: 600; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+  .cluster-badge text { fill: #f5f4ee; font-size: 13px; font-weight: 600; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
 
-  .zoomctl { position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column; gap: 1px; background: #ffffff; border: 0.5px solid #d8d6cc; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
-  .zoomctl button { width: 28px; height: 26px; border: none; background: #ffffff; color: #33322e; font-size: 15px; cursor: pointer; line-height: 1; }
+  .zoomctl { position: absolute; top: 10px; right: 10px; z-index: 20; display: flex; flex-direction: column; gap: 2px; background: #ffffff; border: 0.5px solid #d8d6cc; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+  .zoomctl button { width: 42px; height: 40px; border: none; background: #ffffff; color: #33322e; font-size: 19px; cursor: pointer; line-height: 1; }
   .zoomctl button:hover { background: #f0efe9; }
   .zoomctl button:first-child { border-bottom: 0.5px solid #e2e0d6; }
 
-  .tooltip { position: absolute; pointer-events: none; background: #262521; color: #f5f4ee; font-size: 12.5px; padding: 6px 10px; border-radius: 6px; line-height: 1.5; opacity: 0; transition: opacity 0.08s; white-space: nowrap; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+  .map-activate { position: absolute; inset: 0; z-index: 15; display: flex; align-items: center; justify-content: center; background: rgba(28,28,26,0.14); cursor: pointer; transition: opacity 0.15s ease; }
+  .map-activate-badge { display: flex; align-items: center; gap: 8px; background: rgba(10,48,73,0.92); color: #ffffff; font-size: 13.5px; font-weight: 600; padding: 10px 16px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); pointer-events: none; }
+  .map-activate-badge svg { width: 16px; height: 16px; flex: none; }
+  .map-activate.hidden { opacity: 0; pointer-events: none; }
+
+  .map-status { position: relative; width: 100%; box-sizing: border-box; background: #eaf3fb; border: 0.5px solid #d8d6cc; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 28px 24px; }
+  .map-spinner { width: 32px; height: 32px; border: 3px solid #d3e3ea; border-top-color: #0a3049; border-radius: 50%; animation: map-spin 0.75s linear infinite; }
+  @keyframes map-spin { to { transform: rotate(360deg); } }
+  .map-status-text { font-size: 14px; color: #55534d; max-width: 320px; line-height: 1.5; }
+  .map-status-error .map-status-text { color: #7a3b2e; }
+  .map-status-error svg { color: #b5493a; }
+  .map-retry-btn { margin-top: 2px; padding: 9px 20px; border-radius: 999px; border: 1.5px solid #0a3049; background: #ffffff; color: #0a3049; font-size: 13.5px; font-weight: 600; cursor: pointer; font-family: inherit; min-height: 40px; }
+  .map-retry-btn:hover { background: #0a3049; color: #ffffff; }
+
+  .tooltip { position: absolute; pointer-events: none; background: #262521; color: #f5f4ee; font-size: 13.5px; padding: 6px 10px; border-radius: 6px; line-height: 1.5; opacity: 0; transition: opacity 0.08s; white-space: nowrap; z-index: 5; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
   .tooltip .tt-name { font-weight: 600; }
-  .tooltip .tt-sub { color: #b9b7ac; }
+  .tooltip .tt-sub { color: #d6d3c9; }
 
   .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 14px 0 4px; }
-  .leg-item { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: #33322e; cursor: pointer; padding: 3px 8px 3px 6px; border-radius: 6px; border: 0.5px solid transparent; user-select: none; }
+  .leg-item { display: flex; align-items: center; gap: 6px; font-size: 14px; color: #33322e; cursor: pointer; padding: 6px 10px 6px 8px; min-height: 40px; box-sizing: border-box; border-radius: 6px; border: 0.5px solid transparent; user-select: none; }
   .leg-item:hover { background: #ffffff; border-color: #d8d6cc; }
   .leg-item.off { opacity: 0.35; }
-  .leg-swatch { width: 13px; height: 13px; flex: none; }
-  .leg-count { color: #918f86; margin-left: 2px; }
+  .leg-swatch { width: 14px; height: 14px; flex: none; }
+  .leg-count { color: #6b6862; margin-left: 2px; }
 
-  .hint { font-size: 12px; color: #918f86; margin-top: 8px; }
+  .hint { font-size: 13.5px; color: #6b6862; margin-top: 8px; }
 
-  .popout { position: absolute; width: 228px; background: #ffffff; border: 0.5px solid #d8d6cc; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); padding: 12px 14px 14px; z-index: 8; display: none; }
+  .popout { position: absolute; width: 240px; background: #ffffff; border: 0.5px solid #d8d6cc; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); padding: 14px 16px 16px; z-index: 8; display: none; }
   .popout-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-  .popout-title { font-size: 13.5px; font-weight: 600; color: #1c1c1a; line-height: 1.35; }
-  .popout-count { font-size: 11.5px; color: #6b6a64; margin: 2px 0 8px; }
-  .popout-close { flex: none; background: none; border: none; cursor: pointer; color: #918f86; font-size: 17px; line-height: 1; padding: 0 0 0 4px; }
+  .popout-title { font-size: 14.5px; font-weight: 600; color: #1c1c1a; line-height: 1.35; }
+  .popout-count { font-size: 12.5px; color: #55534d; margin: 2px 0 8px; }
+  .popout-close { flex: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; color: #6b6862; font-size: 19px; line-height: 1; padding: 0; margin: -6px -8px 0 0; }
   .popout-close:hover { color: #1c1c1a; }
-  .popout-whale-row { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: #33322e; padding: 4px 6px; margin: 0 -6px; border-radius: 6px; cursor: pointer; user-select: none; }
+  .popout-whale-row { display: flex; align-items: center; gap: 7px; font-size: 13.5px; color: #33322e; padding: 8px 6px; min-height: 40px; box-sizing: border-box; margin: 0 -6px; border-radius: 6px; cursor: pointer; user-select: none; }
   .popout-whale-row:hover { background: #f5f4ee; }
   .popout-whale-row.off { opacity: 0.4; }
-  .popout-swatch { width: 12px; height: 12px; flex: none; }
-  .popout-wcount { margin-left: auto; color: #918f86; font-size: 11.5px; }
-  .popout-btn { margin-top: 10px; width: 100%; padding: 7px; border-radius: 6px; border: 0.5px solid #d8d6cc; background: #f7f6f2; font-size: 12px; color: #33322e; cursor: pointer; }
+  .popout-swatch { width: 13px; height: 13px; flex: none; }
+  .popout-wcount { margin-left: auto; color: #6b6862; font-size: 12.5px; }
+  .popout-btn { margin-top: 10px; width: 100%; min-height: 42px; padding: 8px; border-radius: 6px; border: 0.5px solid #d8d6cc; background: #f7f6f2; font-size: 13.5px; color: #33322e; cursor: pointer; }
   .popout-btn:hover { background: #eeece3; }
 </style>
 </head>
@@ -256,6 +270,29 @@ const MINI_W = 760, MINI_H = 460;
 
 let landFeatures = null;
 
+// ---------- map loading / error placeholders ----------
+function renderMapLoading(container, w, h) {
+  container.html("").append("div")
+    .attr("class", "map-status")
+    .style("aspect-ratio", `${w} / ${h}`)
+    .html(`
+      <div class="map-spinner"></div>
+      <div class="map-status-text">Loading map&hellip;</div>
+    `);
+}
+
+function renderMapError(container, w, h, onRetry) {
+  container.html("").append("div")
+    .attr("class", "map-status map-status-error")
+    .style("aspect-ratio", `${w} / ${h}`)
+    .html(`
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4"></path><path d="M12 16.5v.01"></path><path d="M10.3 3.9L2.5 18a1.6 1.6 0 0 0 1.4 2.4h16.2a1.6 1.6 0 0 0 1.4-2.4L13.7 3.9a1.6 1.6 0 0 0-2.8 0z"></path></svg>
+      <div class="map-status-text">This map couldn't be loaded. Check your connection and try again.</div>
+      <button class="map-retry-btn" type="button">Retry</button>
+    `);
+  container.select(".map-retry-btn").on("click", onRetry);
+}
+
 // ---------- reusable map factory ----------
 function mountMap(parent, opts) {
   const { data, showClusters, showLegend, hintText } = opts;
@@ -272,6 +309,20 @@ function mountMap(parent, opts) {
   const zoomOutBtn = zoomctl.append("button").attr("aria-label", "Zoom out").html("&minus;");
   const tooltip = stage.append("div").attr("class", "tooltip");
   const popoutEl = showClusters ? stage.append("div").attr("class", "popout") : null;
+
+  // Overlay that must be clicked/tapped before scroll-to-zoom or touch-drag activate on this
+  // map. Without it, a visitor scrolling down the page with their cursor over the map would
+  // have that scroll hijacked into zooming the map instead of continuing to scroll the page.
+  const activateOverlay = stage.append("div").attr("class", "map-activate").attr("tabindex", "0").attr("role", "button").attr("aria-label", "Click to interact with this map");
+  activateOverlay.append("div").attr("class", "map-activate-badge").html(`
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"></circle></svg>
+    <span>Click or tap to explore the map</span>
+  `);
+  function dismissActivateOverlay() { activateOverlay.classed("hidden", true); }
+  activateOverlay.on("click", dismissActivateOverlay);
+  activateOverlay.on("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") { event.preventDefault(); dismissActivateOverlay(); }
+  });
 
   const legend = showLegend ? parent.append("div").attr("class", "legend") : null;
   if (hintText) parent.append("p").attr("class", "hint").html(hintText);
@@ -335,7 +386,7 @@ function mountMap(parent, opts) {
       .attr("class", "cluster-badge")
       .attr("transform", clusterTransform)
       .on("click", (event, d) => { event.stopPropagation(); togglePopout(d); });
-    badge.append("circle").attr("r", 13);
+    badge.append("circle").attr("r", 17);
     badge.append("text").text(d => d.count);
   }
 
@@ -576,7 +627,11 @@ function renderProfile(name) {
     </div>
   `;
 
-  if (landFeatures) mountProfileMap(name);
+  if (landFeatures) {
+    mountProfileMap(name);
+  } else {
+    renderMapLoading(d3.select("#profileMapMount"), MINI_W, MINI_H);
+  }
 }
 
 function mountProfileMap(name) {
@@ -593,22 +648,58 @@ function mountProfileMap(name) {
   });
 }
 
-// ---------- build maps once land data is loaded ----------
+// ---------- load map data, independent of the whale profile text above ----------
 let primaryMapApi = null;
-d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json").then(world => {
-  const land = topojson.feature(world, world.objects.land);
-  landFeatures = land.features;
+const WORLD_ATLAS_URL = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
 
-  const defaultWhale = mySponsoredWhales[0] || whaleDisplayOrder[0];
-  selectWhale(defaultWhale);
+// Show the whale profile text (name, bio, update) immediately - it doesn't depend on the
+// map data fetch, so there's no reason to make a visitor wait on the network for it.
+const defaultWhale = mySponsoredWhales[0] || whaleDisplayOrder[0];
+selectWhale(defaultWhale);
+renderMapLoading(d3.select("#primaryMap"), PRIMARY_W, PRIMARY_H);
 
+function loadMapData() {
+  d3.json(WORLD_ATLAS_URL)
+    .then(world => {
+      landFeatures = topojson.feature(world, world.objects.land).features;
+      onMapDataReady();
+    })
+    .catch(err => {
+      console.error("Failed to load map coastline data:", err);
+      onMapDataError();
+    });
+}
+
+function onMapDataReady() {
   primaryMapApi = mountMap(d3.select("#primaryMap"), {
     data: sightings,
     width: PRIMARY_W, height: PRIMARY_H,
     showClusters: true, showLegend: true,
     hintText: "Scroll or use the buttons to zoom, drag to pan &middot; click a numbered cluster for details &middot; hover a point for whale info &middot; click a name below to isolate that whale"
   });
-});
+  // Upgrade whichever whale's mini-map is currently showing its loading placeholder.
+  if (activeWhale && !d3.select("#profileMapMount svg").node()) {
+    mountProfileMap(activeWhale);
+  }
+}
+
+function onMapDataError() {
+  renderMapError(d3.select("#primaryMap"), PRIMARY_W, PRIMARY_H, retryLoadMapData);
+  const mount = d3.select("#profileMapMount");
+  if (!mount.empty()) {
+    renderMapError(mount, MINI_W, MINI_H, retryLoadMapData);
+  }
+}
+
+function retryLoadMapData() {
+  renderMapLoading(d3.select("#primaryMap"), PRIMARY_W, PRIMARY_H);
+  const mount = d3.select("#profileMapMount");
+  if (!mount.empty()) renderMapLoading(mount, MINI_W, MINI_H);
+  loadMapData();
+}
+
+loadMapData();
 </script>
+
 </body>
 </html>
